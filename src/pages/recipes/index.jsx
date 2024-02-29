@@ -37,9 +37,9 @@ export default function Recipes() {
       })
       .catch((error) => {
         console.log(error);
-      }) 
+      })
 
-      .finally(() => setLoading(false))
+      .finally(() => setLoading(false));
 
     // update recipes state
   };
@@ -58,8 +58,14 @@ export default function Recipes() {
           }
         />
 
-        <Grid sx={{ mt: "1rem", justifyContent:'center' }} container spacing={3}>
-          { loading ? <img src= {loadingIcon} width='100%'/> : recipes.length > 0 ? (
+        <Grid
+          sx={{ mt: "1rem", justifyContent: "center" }}
+          container
+          spacing={3}
+        >
+          {loading ? (
+            <img src={loadingIcon} width="100%" />
+          ) : recipes.length > 0 ? (
             recipes.map((recipe) => (
               <Grid key={recipe.id} item xs={4}>
                 <Card sx={{ maxWidth: 345, height: "100%" }}>
@@ -72,9 +78,9 @@ export default function Recipes() {
                     />
                     <CardContent sx={{ height: "100%" }}>
                       <Link to={`/recipes/${recipe.id}`}>
-                      <Typography gutterBottom variant="h5" component="div">
-                        {recipe.title}
-                      </Typography>
+                        <Typography gutterBottom variant="h5" component="div">
+                          {recipe.title}
+                        </Typography>
                       </Link>
                     </CardContent>
                   </CardActionArea>
